@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +21,27 @@ namespace _1_BugTracker.Models
         [NotMapped]
         [Display(Name = "Full Name")]
         public string FullName { get { return $"{FirstName} {LastName}"; } }
+
+        [NotMapped]
+        [DataType(DataType.Upload)]
+        public IFormFile AvatarFormFile { get; set; }
+
+        [DisplayName("Avatar")]
+        public string AvatarFileName { get; set; }
+        public byte[] AvatarFileData { get; set; }
+
+        [DisplayName("File Extension")]
+        public string AvatarContentType { get; set; }
+
+        public string? CompanyId { get; set; }
+
+        //navigation props
+        public virtual Company Company { get; set; }
+        public virtual ICollection<Project> Projects { get; set; } = new HashSet<Project>();
+        
+
+
+
 
     }
 }
