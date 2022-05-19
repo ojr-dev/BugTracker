@@ -33,7 +33,7 @@ namespace _1_BugTracker.Models
         [DisplayName("File Extension")]
         public string AvatarContentType { get; set; }
 
-        public string? CompanyId { get; set; }
+        public int CompanyId { get; set; }
 
         //navigation props
         public virtual Company Company { get; set; }

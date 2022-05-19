@@ -13,7 +13,7 @@ namespace _1_BugTracker.Models
         public string Description { get; set; }
 
         //Navigation Prop
-        public virtual ICollection<BT_User> Users { get; set; } = new HashSet<BT_User>(); 
+        public virtual ICollection<BT_User> Users { get; set; }
         public virtual ICollection<Project> Projects { get; set; } = new HashSet<Project>();
     }
 

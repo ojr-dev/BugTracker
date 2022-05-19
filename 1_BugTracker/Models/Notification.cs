@@ -12,8 +12,9 @@ namespace _1_BugTracker.Models
         [Required]
         public int TicketId { get; set; }
 
-        [Required]
-        public string StatusId { get; set; }
+        
+        public int StatusId { get; set; }
+        public virtual NotificationStatus Status { get; set; }
 
         [Required]
         [Display(Name ="Message")]
@@ -33,7 +34,7 @@ namespace _1_BugTracker.Models
         public bool Viewed { get; set; }
 
         //Nav props
-        public virtual NotificationStatus Status { get; set; }
+        
         public virtual Ticket Ticket { get; set; }
         public virtual BT_User Sender { get; set; }
         public virtual BT_User Recipient { get; set; }
